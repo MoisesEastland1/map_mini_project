@@ -12,7 +12,19 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 const lat = pos.coords.latitude;
 const lng = pos.coords.longitude;
 
+const showLat = document.createElement('div');
+showLat.classList.add('lat');
+showLat.innerHTML = `
+<p><span>Latitude:</span> ${lat}</p>
+`;
+document.querySelector('.lat').appendChild(showLat);
 
+const showLng = document.createElement('div');
+showLng.classList.add('lng');
+showLng.innerHTML = `
+<p><span>Longitude</span>: ${lng}</p>
+`;
+document.querySelector('.lat').appendChild(showLng);
 
 console.log(`latitude ${lat}`);
 console.log(`longitude ${lng}`);
