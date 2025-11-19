@@ -12,11 +12,20 @@ navigator.geolocation.getCurrentPosition(function (pos) {
 const lat = pos.coords.latitude;
 const lng = pos.coords.longitude;
 
+
+
+
+
 const showLat = document.createElement('div');
 showLat.classList.add('lat');
 showLat.innerHTML = `
 <p><span>Latitude:</span> ${lat}</p>
 `;
+showLat.style.display ='flex';
+showLat.style.flexDirection ='column';
+showLat.style.alignItems = 'center';
+showLat.style.justifyContent = 'center';
+
 document.querySelector('.lat').appendChild(showLat);
 
 const showLng = document.createElement('div');
@@ -24,10 +33,14 @@ showLng.classList.add('lng');
 showLng.innerHTML = `
 <p><span>Longitude</span>: ${lng}</p>
 `;
-document.querySelector('.lat').appendChild(showLng);
+showLng.style.display ='flex';
+showLng.style.flexDirection ='column';
+showLng.style.alignItems = 'center';
+showLng.style.justifyContent = 'center';
 
-console.log(`latitude ${lat}`);
-console.log(`longitude ${lng}`);
+document.querySelector('.lng').appendChild(showLng);
+
+
 marker.setLatLng([lat, lng]).update();
 map.setView([lat, lng], 13);
 
